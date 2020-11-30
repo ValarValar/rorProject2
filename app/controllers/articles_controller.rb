@@ -36,8 +36,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def index
-  		@articles = Article.all
-  		@article = Article.new
+  		@articles = Article.paginate(page: params[:page], per_page: 5)
 	end
 
 	def destroy
